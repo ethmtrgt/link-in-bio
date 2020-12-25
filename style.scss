@@ -1,0 +1,74 @@
+// Variables
+$titlecolor: #f1f1f1;
+$fontcolor: #b8b8b8;
+$bg-color: #1d1f25;
+$btn-color: #262b36;
+$thrd: #6d2dc0;
+
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;500;600;700&display=swap");
+
+body {
+    margin: 0;
+    background-color: $bg-color;
+    font-family: "Montserrat", sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+#cards {
+    width: 100%;
+    padding: 0.5em;
+
+    .card {
+        cursor: pointer;
+        display: flex;
+        position: relative;
+        overflow: hidden;
+        height: 80px;
+        margin: 12px;
+        padding: 10px;
+        border-radius: 1rem;
+        background-color: $btn-color;
+        box-shadow: transparentize($btn-color, 0.75) 0 4px 8px;
+
+        .logo {
+            width: 100px;
+            height: 60px;
+            background-size: auto 100%;
+            background-position: center center;
+            border-radius: 8px;
+        }
+
+        .col {
+            margin-left: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+
+            h2 {
+                color: $titlecolor;
+                font-weight: bold;
+                margin: 0;
+            }
+    
+            h3 {
+                color: $fontcolor;
+                font-weight: 400;
+                font-size: 0.8em;
+                margin: 0;
+            }
+        }
+
+        &::after {
+            content: "";
+            background-color: $thrd;
+            position: absolute;
+            width: 12px;
+            height: 100%;
+            top: 0;
+            right: 0;
+        }
+    }
+}

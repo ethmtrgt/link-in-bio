@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div id="cards">
+        <template>
+            <div class="card">
+                <div class="logo"></div>
+                <div class="col">
+                    <h2></h2>
+                    <h3></h3>
+                </div>
+            </div>
+        </template>
+    </div>
+</body>
+</html>
+
+<script>
+    config = [
+        {
+            title: 'Google',
+            description: 'My Google Page',
+            url: 'http://google.com',
+            logo: '/img/logo.png'
+        },
+        {
+            title: '',
+            description: '',
+            url: '',
+            logo: ''
+        }
+    ]
+
+    for (let i = 0; i < config.length; i++) {
+            
+        const element = config[i];
+        const template = document.querySelector('template').content.firstElementChild.cloneNode(true);
+        // Set logo.
+        template.querySelector('.logo').style.backgroundImage = `url('${element.logo}')`;
+        // Set title.
+        template.querySelector('h2').innerText = element.title;
+        // Set description.
+        if (element.description != null) {
+            template.querySelector('h3').innerText = element.description;
+        } else {
+            template.querySelector('h3').parentNode.removeChild(template.querySelector('h3'));
+        }
+        // Set link.
+        template.addEventListener('click', () => window.location = element.url);
+        // Insert card into cards container.
+        document.querySelector('#cards').appendChild(template);
+    }
+
+
+
+</script>
